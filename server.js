@@ -10,4 +10,4 @@ http.createServer((req, res) => {
     res.writeHead(200, { 'Content-Type': types[path.extname(f)] || 'application/octet-stream' });
     res.end(d);
   });
-}).listen(8080, () => console.log('http://localhost:8080'));
+}).listen(8080, '0.0.0.0', () => console.log('Servidor listo en http://localhost:8080 y en red local'));

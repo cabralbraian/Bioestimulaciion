@@ -470,25 +470,8 @@
     if (d.open) ds.forEach(o => { if (o !== d) o.open = false; });
   }));
 
-  /* ---- Globo y Widget de WhatsApp ---- */
-  const waBubble = $('#waBubble');
-  const waBubbleClose = $('#waBubbleClose');
+  /* ---- Botón Flotante WhatsApp ---- */
   const waBtn = $('#waBtn');
-
-  if (waBubbleClose) {
-    waBubbleClose.addEventListener('click', (e) => {
-      e.stopPropagation();
-      e.preventDefault();
-      waBubble.classList.add('is-closed');
-      sessionStorage.setItem('wa_bubble_closed', '1');
-    });
-  }
-
-  if (waBubble && !sessionStorage.getItem('wa_bubble_closed')) {
-    setTimeout(() => {
-      waBubble.classList.remove('is-closed');
-    }, 1800);
-  }
 
   /* ---- Efecto magnético sutil en botones ---- */
   if (matchMedia('(hover:hover) and (pointer:fine)').matches && !reduce) {

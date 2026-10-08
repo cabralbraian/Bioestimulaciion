@@ -35,27 +35,27 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 @keyframes glowBreath{0%,100%{transform:translate(-50%,-50%) scale(1);opacity:.7}50%{transform:translate(-50%,-50%) scale(1.18);opacity:1}}
 
 /* Bloque central de la marca */
-.intro-brand{position:relative;z-index:3;display:flex;flex-direction:column;align-items:center;text-align:center;padding:40px 20px;user-select:none;transition:transform .8s var(--ease),opacity .7s}
+.intro-brand{position:relative;z-index:3;display:flex;flex-direction:column;align-items:center;text-align:center;padding:24px 16px;width:100%;max-width:92vw;user-select:none;transition:transform .8s var(--ease),opacity .7s}
 .intro-screen.is-exiting .intro-brand{transform:scale(1.08);opacity:0}
 .intro-brand.flash{animation:brandFlash .6s ease-out}
 @keyframes brandFlash{0%,100%{filter:brightness(1)}50%{filter:brightness(1.8) drop-shadow(0 0 40px rgba(53,195,255,1))}}
 
 /* 1. ADN de la clínica como cargador */
-.intro-dna-box{position:relative;width:66px;height:84px;margin-bottom:28px}
+.intro-dna-box{position:relative;width:56px;height:72px;margin-bottom:22px}
 .intro-dna-svg{position:absolute;inset:0;width:100%;height:100%}
 .intro-dna-svg--base{opacity:.85}
 .intro-dna-svg--fill{filter:drop-shadow(0 0 14px rgba(53,195,255,.95));clip-path:inset(100% 0 0 0);transition:clip-path .05s linear;will-change:clip-path}
 
 /* 2. Título BIOESTIMULACIÓN como cargador líquido */
-.intro-text-box{display:flex;flex-direction:column;align-items:center}
-.intro-title-wrap{position:relative;display:inline-block;margin-bottom:12px}
-.intro-title{font-size:clamp(32px,5.4vw,60px);line-height:1;font-weight:800;letter-spacing:.22em;text-transform:uppercase;white-space:nowrap;display:block}
-.intro-title--base{color:rgba(255,255,255,.12);letter-spacing:.22em}
+.intro-text-box{display:flex;flex-direction:column;align-items:center;width:100%}
+.intro-title-wrap{position:relative;display:inline-block;margin-bottom:12px;max-width:100%}
+.intro-title{font-size:clamp(24px,7.5vw,58px);line-height:1.1;font-weight:800;letter-spacing:clamp(.08em,2vw,.22em);text-transform:uppercase;white-space:nowrap;display:block}
+.intro-title--base{color:rgba(255,255,255,.12)}
 .intro-title--fill{position:absolute;inset:0;color:transparent;background:linear-gradient(90deg,#35c3ff 0%,#7fdcff 50%,#ffffff 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 0 25px rgba(53,195,255,.75));clip-path:inset(0 100% 0 0);transition:clip-path .05s linear;will-change:clip-path}
 
 /* Subtítulos */
-.intro-subtitle{font-size:clamp(10.5px,1.4vw,13px);letter-spacing:.28em;color:var(--cyan);font-weight:700;margin-bottom:6px;opacity:0;animation:fadeInUp .8s .3s forwards}
-.intro-meta{font-size:12px;letter-spacing:.05em;color:#9fb2c8;opacity:0;animation:fadeInUp .8s .5s forwards}
+.intro-subtitle{font-size:clamp(9.5px,2.5vw,13px);letter-spacing:clamp(.12em,1.5vw,.28em);color:var(--cyan);font-weight:700;margin-bottom:6px;opacity:0;animation:fadeInUp .8s .3s forwards}
+.intro-meta{font-size:clamp(10.5px,2.4vw,12px);letter-spacing:.04em;color:#9fb2c8;opacity:0;animation:fadeInUp .8s .5s forwards}
 @keyframes fadeInUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 
 /* 3. Contador y botón de entrada */
@@ -419,52 +419,121 @@ details[open]>div p{padding-bottom:18px}
 }
 
 @media (max-width:760px){
+  :root{--pad:18px}
   .header__cta .btn{display:none}
+  .header__in{padding:14px var(--pad)}
+  .logo__mark{width:22px;height:28px}
+  .logo__txt b{font-size:13px;letter-spacing:.05em}
+  .logo__txt small{font-size:7.5px}
+
+  /* Hero Mobile */
   .hero{align-items:flex-end;min-height:100svh}
-  .hero__img{width:100%;height:70%;object-position:68% 20%}
-  .hero__shade{background:linear-gradient(0deg,var(--ink) 38%,rgba(5,11,22,.2) 70%,rgba(5,11,22,.6) 100%)}
-  .hero__in{padding-top:0;padding-bottom:70px}
-  .hero__title{font-size:clamp(38px,11vw,50px)}
-  .hero__facts{flex-direction:column;gap:12px}
+  .hero__img{width:100%;height:68%;object-position:70% 18%}
+  .hero__shade{background:linear-gradient(0deg,var(--ink) 42%,rgba(5,11,22,.5) 75%,rgba(5,11,22,.7) 100%)}
+  .hero__in{padding-top:100px;padding-bottom:50px}
+  .hero__badge{font-size:10.5px;padding:5px 12px;margin-bottom:14px;white-space:normal;line-height:1.3}
+  .hero__title{font-size:clamp(32px,9.5vw,46px);line-height:1.1;margin-bottom:18px}
+  .hero__lead{font-size:14px;line-height:1.55;margin-bottom:26px}
+  .hero__btns{flex-direction:column;gap:12px;width:100%;margin-bottom:32px}
+  .hero__btns .btn{width:100%;justify-content:center;padding:0 20px;font-size:14px;--h:50px}
+  .hero__facts{flex-direction:column;gap:10px;font-size:11.5px}
   .hero__facts li+li{padding:0;border:0}
   .hero__side,.scroll-ind{display:none}
-  .hero__btns .btn{flex:1;justify-content:center;padding:0 18px}
   
-  .treat__cards{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 calc(var(--pad)*-1);padding:0 var(--pad);scrollbar-width:none;gap:12px}
+  /* Tratamientos Mobile */
+  .treat__intro{margin-bottom:24px}
+  .treat__tabs{overflow-x:auto;flex-wrap:nowrap;padding-bottom:8px;margin:18px 0 16px;scrollbar-width:none}
+  .treat__tabs::-webkit-scrollbar{display:none}
+  .treat__tab{flex-shrink:0;padding:6px 14px;font-size:11.5px}
+  .treat__cards{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;margin:0 calc(var(--pad)*-1);padding:0 var(--pad) 12px;scrollbar-width:none;gap:14px}
   .treat__cards::-webkit-scrollbar{display:none}
-  .card{flex:0 0 72%;scroll-snap-align:start}
+  .card{flex:0 0 82%;max-width:300px;aspect-ratio:3/4.2;scroll-snap-align:start}
+  .card__over{padding:14px}
+  .card h3{font-size:15px}
+  .card p{font-size:11px}
   
+  /* Por Qué Mobile */
   .why{flex-direction:column;align-items:stretch;padding-top:0}
-  .why__photo{position:relative;width:100%;height:300px;order:-1}
-  .why__photo::before{background:linear-gradient(0deg,var(--navy),transparent 60%)}
-  .why__dna{width:44%;opacity:.5;top:auto;height:100%}
-  .why__in{padding-top:30px}
-  .why__card-badge{bottom:14px;left:14px}
+  .why__photo{position:relative;width:100%;height:320px;order:-1}
+  .why__photo::before{background:linear-gradient(0deg,var(--navy) 15%,transparent 70%)}
+  .why__photo .script{right:5%;top:12%;font-size:24px}
+  .why__photo .ph img{height:100%;margin-top:0}
+  .why__dna{width:60%;opacity:.4;top:auto;height:100%}
+  .why__in{padding-top:24px;padding-bottom:50px}
+  .why__card-badge{bottom:12px;left:12px;right:12px}
+  .doctor-badge{padding:8px 14px}
+  .doctor-badge strong{font-size:11.5px}
+  .doctor-badge small{font-size:9.5px}
+  .metrics{gap:24px;margin-top:28px}
+  .metrics strong.counter{font-size:36px}
   
-  .steps{grid-template-columns:1fr 1fr;row-gap:36px}
+  /* Proceso Mobile */
+  .process__grid{gap:32px}
+  .steps{grid-template-columns:1fr;row-gap:22px}
   .steps::before,.steps__progress{display:none}
+  .step{padding-left:60px;position:relative}
+  .step__ico{position:absolute;left:0;top:0;width:46px;height:46px;margin:0;font-size:18px}
+  .step h3{font-size:16px}
+  .step p{max-width:none}
   
-  .ba{flex-basis:86%}
+  /* Resultados Mobile */
+  .results__intro{margin-bottom:20px}
+  .results__hint{font-size:11px;padding:6px 10px}
+  .ba-track{gap:12px;margin:0 calc(var(--pad)*-1);padding:0 var(--pad) 12px;-webkit-overflow-scrolling:touch}
+  .ba{flex:0 0 88%;max-width:320px;aspect-ratio:1/1.1;scroll-snap-align:start}
   .ba-nav{display:none}
   
-  .team__list{grid-template-columns:repeat(3,75%);overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;margin-right:calc(var(--pad)*-1)}
+  /* Equipo & Clínica Mobile */
+  .team__list{grid-template-columns:repeat(3,82%);overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;margin:0 calc(var(--pad)*-1);padding:0 var(--pad) 10px;gap:12px}
   .member{scroll-snap-align:start}
+  .clinic{grid-template-columns:1fr;margin-top:40px}
+  .clinic__img{min-height:220px}
   
-  .clinic{grid-template-columns:1fr}
-  .clinic__img{min-height:240px}
+  /* Testimonios & FAQ Mobile */
+  .talk{padding-top:40px;padding-bottom:50px}
+  .testi__list{grid-template-columns:repeat(3,86%);overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;margin:0 calc(var(--pad)*-1);padding:0 var(--pad) 10px;gap:12px}
+  blockquote{scroll-snap-align:start;padding:20px 16px}
+  .faq__list{margin-top:20px}
+  summary{font-size:13px;padding:15px 0}
   
-  .testi__list{grid-template-columns:repeat(3,82%);overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;margin-right:calc(var(--pad)*-1)}
-  blockquote{scroll-snap-align:start}
+  /* CTA Final Mobile */
+  .cta{padding:60px 0}
+  .cta .h2{font-size:30px}
+  .cta .lead{font-size:13.5px;margin-bottom:24px}
+  .cta__btns{flex-direction:column;width:100%;gap:12px}
+  .cta__btns .btn{width:100%;justify-content:center}
+  .script--cta{position:static;margin-top:26px;text-align:center;transform:none}
+  .cta__bg img{width:100%;left:0;opacity:.35}
   
-  .script--cta{position:static;margin-top:28px;text-align:center;transform:none}
-  .cta__bg img{width:100%;left:0;opacity:.4}
-  .footer__in{flex-direction:column;align-items:flex-start}
+  /* Footer Mobile */
+  .footer{padding:30px 0 24px}
+  .footer__in{flex-direction:column;align-items:flex-start;gap:20px}
+  .footer__nav{gap:14px 20px;font-size:12px}
+  .footer__bot{flex-direction:column;gap:8px;font-size:10px}
   
+  /* WhatsApp flotante en Mobile: cómodo para el pulgar */
   .wa-widget{right:16px;bottom:16px}
-  .wa-widget__bubble{width:calc(100vw - 32px);max-width:320px}
+  .wa-btn{width:54px;height:54px}
+  .wa-btn svg{width:28px;height:28px}
+  
+  /* Modal Mobile */
+  .t-modal{padding:12px}
+  .t-modal__content{border-radius:14px;max-height:92vh;overflow-y:auto}
   .t-modal__body{grid-template-columns:1fr}
-  .t-modal__img-wrap{max-height:220px}
-  .t-modal__info{padding:24px 20px}
+  .t-modal__img-wrap{max-height:200px}
+  .t-modal__info{padding:20px 16px}
+  .t-modal__info h3{font-size:20px}
+  .t-modal__info p{font-size:12.5px;margin-bottom:14px}
+  .t-modal__features{margin-bottom:20px}
+  .t-modal__info .btn{width:100%;justify-content:center}
+}
+
+@media (max-width:400px){
+  .hero__title{font-size:30px}
+  .card{flex:0 0 88%}
+  .ba{flex:0 0 92%}
+  .team__list{grid-template-columns:repeat(3,90%)}
+  .testi__list{grid-template-columns:repeat(3,92%)}
 }
 
 @media (hover:none){.cursor{display:none}}
